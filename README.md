@@ -7,10 +7,10 @@ I have also semi-recreated emacs version 3.9p+ that was written for the PT68K-2/
 
   cursor control keys have been augmented to allow control and shift operations on them. Here is a description of the changes:
 
-      1.  shift right arrow  - drop a mark and start moving the cursor to the right  __(only on keypad)__
-      2.  shift left  arrow  - drop a mark and start moving the cursor to the left   __(only on keypad)__
-      3.  shift down           drop a mark and start moving the cursor down one line __(only on keypad)__
-      4.  shift up             drop a mark and start moving the cursor up one line   __(only on keypad)__
+      1.  shift right arrow  - drop a mark and start moving the cursor to the right  (only on keypad)
+      2.  shift left  arrow  - drop a mark and start moving the cursor to the left   (only on keypad)
+      3.  shift down           drop a mark and start moving the cursor down one line (only on keypad)
+      4.  shift up             drop a mark and start moving the cursor up one line   (only on keypad)
       5.  control right arrow  move the cursor right one word
       6.  control left  arrow  move the cursor left  one word
       7.  shift Insert         same as ^Y - yank the kill buffer to the cursor position
