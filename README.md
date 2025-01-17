@@ -26,7 +26,7 @@ I also added a program to put the minix OS image on the hardrive in /usr2/src/mi
 
 There is also a program called key. run it and you can see what each keystroke returns to the OS. DO NOT press the Delete or Del keys. If you do, you will have to exit and log back in to get screen scrolling to work. The program puts the keyboard in RAW and CREAK mode.Entering the Delete or Del key will terminate the program before it gets a chance to set the sgtty structure for the console back to what it was originally.
 
-The SD Card requires at least HUMBUG version 2.3 dated 12/28/24. You can use either the WD or the MI command to boot from the SD Card.WD will use the bootloader on the hard drive and MI will use the nuilt in HUMBUG boot loader. Using the WD command to use the SD Card resident boot loader is made possible by havinf a VERY small SK*DOS partition on the drive that minix knows nothing about. It's just a few sectors that fool HUMBUG into thinking it is boot SK*DOS. The program that is actually booted is the minix boot loader.
+The SD Card requires at least HUMBUG version 2.3 dated 12/28/24. You can use either the WD or the MI command to boot from the SD Card.WD will use the bootloader on the hard drive and MI will use the built in HUMBUG boot loader. Using the WD command to use the SD Card resident boot loader is made possible by having a VERY small SK*DOS partition on the drive that minix knows nothing about. It's just a few sectors that fool HUMBUG into thinking it is booting SK*DOS. The program that is actually booted is the minix boot loader.
 
 Once booted, the user name to login with is 'root' and the password is 'merlin'.
 
