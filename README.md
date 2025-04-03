@@ -24,15 +24,15 @@ The changes I made to the kernel to support these emacs changes are primarily in
 
 I also added a program to put the minix OS image on the hardrive in /usr2/src/minix/sttools. It is called putminix. If you run 'make harddrive', make will use the Makefile to make sure the minix.img file is up to date before it writes it to the IDE drive. putminix, will report what it is going to do and asks for confirmation. When asked enter either y or n (case does not matter) followed by the Enter key.
 
-There is also a program called key. run it and you can see what each keystroke returns to the OS. DO NOT press the Delete or Del keys. If you do, you will have to exit and log back in to get screen scrolling to work. The program puts the keyboard in RAW and CREAK mode.Entering the Delete or Del key will terminate the program before it gets a chance to set the sgtty structure for the console back to what it was originally.
+There is also a program called key. Run it and you can see what each keystroke returns to the OS. DO NOT press the Delete or Del keys. If you do, you will have to exit and log back in to get screen scrolling to work. The program puts the keyboard in RAW and CREAK mode.Entering the Delete or Del key will terminate the program before it gets a chance to set the sgtty structure for the console back to what it was originally.
 
-The SD Card requires at least HUMBUG version 2.3 dated 12/28/24. You can use either the WD or the MI command to boot from the SD Card. WD will use the bootloader on the hard drive and MI will use the built in HUMBUG boot loader. Using the WD command to use the SD Card resident boot loader is made possible by having a VERY small SK\*DOS partition on the drive that minix knows nothing about. It's just a few sectors that fool HUMBUG into thinking it is booting SK\*DOS. The program that is actually booted is the minix boot loader.
+The SD Card requires at least version 2.3 of HUMBUG dated 12/28/24. You can use either the WD or the MI command to boot from the SD Card. WD will use the bootloader on the hard drive and MI will use the built in HUMBUG boot loader. Using the WD command to use the SD Card resident boot loader is made possible by having a VERY small SK\*DOS partition on the drive that minix knows nothing about. It's just a few sectors that fool HUMBUG into thinking it is booting SK\*DOS. The program that is actually booted is the minix boot loader.
 
 Once booted, the user name to login with is 'root' and the password is 'merlin'.
 
 Future plans are to put the WD1002-WX1 driver back in and add support for the 37C65 floppy controller. This interface is built into the PT68K-4 and is an addin ISA card on the PT68K-2. 
 
-To make turn around time while testing code go quicker, I am using a versy small SD Card. It is a 256MB card (yes - MB ont GB). Using a small card allows me to back up the image very quickly before commiting changes with putminix. It also allows me make a version of the image for the PT68K-2. I use the PT68K-4 for development, but test on both. The PT68L-4 is just so much faster. Also - using a class 10 SD card .vs. a class 4 card makes a big difference in performance.
+To make turn around time while testing code go quicker, I am using a very small SD Card. It is a 256MB card (yes - MB ont GB). Using a small card allows me to back up the image very quickly before commiting changes with putminix. It also allows me make a version of the image for the PT68K-2. I use the PT68K-4 for development, but test on both. The PT68L-4 is just so much faster. Also - using a class 10 SD card .vs. a class 4 card makes a big difference in performance.
 
 The file FloppyMaintenance can be used to view the SD Card image. It is a Windows program, but it does run under Wine on linux.
 
