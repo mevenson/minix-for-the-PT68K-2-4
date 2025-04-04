@@ -1,6 +1,10 @@
 # minix-for-the-PT68K-2-4
 This is the minix version 1.4b distribution I have been working on for the Peripheral Technology PT68K-2 and PT68K-4 compulters.
 
+hd1.zip has the files that will end up in the root
+hd2.aip has the files that will be mounted as usr
+hd3.zip has the files that will be mounted as usr2 <- this is where the active source is located
+
 Support for the PT XT-IDE controller has been added and the WD1002-WX1 has been removed. The code is still there, I just replaced the device in the devices table.
 
 I have also semi-recreated emacs version 3.9p+ that was written for the PT68K-2/4 minix machines. Somewhere down the line, the source got lost and I have attempted to recreate it from the 3.7 sources that were on the hard drive when I aquired it. I think I got all of the functionality from the emacs executable that is in the usr/bin directory. My compilation is called umacs in usr/bin. I kept the original sources in the usr2/src/minix/commands/emacs directory in a directory under that called 'original'. The modifications I made are in the usr2/src/minix/commands/emacs directory. Once I got umacs working the same as the emacs executable in the /usr/bin directory, I started making some customizations to remove some of the annoying requirements in 3.9p+. I call my version 3.9pt68k. The things I added/changed are:
