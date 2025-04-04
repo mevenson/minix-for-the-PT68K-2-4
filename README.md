@@ -1,9 +1,9 @@
 # minix-for-the-PT68K-2-4
 This is the minix version 1.4b distribution I have been working on for the Peripheral Technology PT68K-2 and PT68K-4 compulters.
 
-hd1.zip has the files that will end up in the root<br>
-hd2.aip has the files that will be mounted as usr<br>
-hd3.zip has the files that will be mounted as usr2 <- this is where the active source is located<br>
+    hd1.zip has the files that will end up in the root<br>
+    hd2.aip has the files that will be mounted as usr<br>
+    hd3.zip has the files that will be mounted as usr2 <- this is where the active source is located<br>
 
 Support for the PT XT-IDE controller has been added and the WD1002-WX1 has been removed. The code is still there, I just replaced the device in the devices table.
 
