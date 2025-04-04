@@ -1,0 +1,35 @@
+mknod ram b 1 0; chmod 640 ram
+mknod mem c 1 1; chmod 640 mem
+mknod kmem c 1 2; chmod 640 kmem
+mknod null c 1 3; chmod 666 null
+mknod fd0 b 2 0; chmod 666 fd0
+mknod fd1 b 2 1; chmod 666 fd1
+mknod dd0 b 2 8; chmod 666 dd0
+mknod dd1 b 2 9; chmod 666 dd1
+mknod fmtfd0 c 2 64;chmod 600 fmtfd0
+mknod fmtdd0 c 2 72;chmod 600 fmtdd0
+mknod fmtfd1 c 2 65;chmod 600 fmtfd1
+mknod fmtdd1 c 2 73;chmod 600 fmtdd1
+mknod hd0 b 3 0; chmod 600 hd0
+mknod hd1 b 3 1; chmod 600 hd1
+mknod hd2 b 3 2; chmod 600 hd2
+mknod hd3 b 3 3; chmod 600 hd3
+mknod hd4 b 3 4; chmod 600 hd4
+mknod hd5 b 3 5; chmod 600 hd5
+mknod hd6 b 3 6; chmod 600 hd6
+mknod hd7 b 3 7; chmod 600 hd7
+mknod rfd0 c 2 0; chmod 666 rfd0
+mknod rfd1 c 2 1; chmod 666 rfd1
+mknod rdd0 c 2 8; chmod 666 rdd0
+mknod rdd1 c 2 9; chmod 666 rdd1
+mknod rhd0 c 3 0; chmod 600 rhd0
+mknod rhd1 c 3 1; chmod 600 rhd1
+mknod rhd2 c 3 2; chmod 600 rhd2
+mknod rhd3 c 3 3; chmod 600 rhd3
+mknod rhd4 c 3 4; chmod 600 rhd4
+mknod rhd5 c 3 5; chmod 600 rhd5
+mknod rhd6 c 3 6; chmod 600 rhd6
+mknod rhd7 c 3 7; chmod 600 rhd7
+mknod tty0 c 4 0; chmod 666 tty0
+mknod tty c 5 0; chmod 666 tty
+mknod lp c 6 0; chmod 222 lp

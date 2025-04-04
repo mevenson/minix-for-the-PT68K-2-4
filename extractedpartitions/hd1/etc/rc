@@ -1,0 +1,9 @@
+rm /etc/mtab
+cp /etc/mtab.empty /etc/mtab
+/etc/mount /dev/hd2 /usr
+/etc/mount /dev/hd3 /usr2
+/etc/mount /dev/hd4 /tmp
+/usr/bin/cmosrtc
+/usr/bin/date
+cat /etc/message
+/etc/update &
