@@ -1,0 +1,407 @@
+#@(#)termcap.src 1.7 (ULTRIX) 1/23/85
+#
+#
+#
+# FORTUNE TERMINALS
+#
+# Modified by Don Bailey to include ingres codes.
+# :be=\E^:\
+# :bl=\EN:\
+#
+FT|fos|fortune|Fortune system:\
+ :al=15^\E:am:bo=^\HH:bs:bs=^H:bw:\
+ :cd=3*^\Y:ce=^\Z:cl=20^L:cm=^\C%+ %+ :\
+ :co#80:dc=5^\W:dk=^At\r:dl=15^\R:\
+ :do=3^J:ea=^\G@:\
+ :eb=^\IH:ei=:\
+ :ho=10^^:ic=5^\Q:\
+ :ik=^Ar\r:im=:\
+ :is=^_..\E\\:\
+ :k0=^Aa\r:k1=^Ab\r:k2=^Ac\r:k3=^Ad\r:\
+ :k4=^Ae\r:k5=^Af\r:k6=^Ag\r:k7=^Ah\r:\
+ :k8=^Ai\r:k9=^Aj\r:kA=^Ak\r:kB=^Al\r:\
+ :kC=^Am\r:kD=^An\r:kE=^Ao\r:kF=^Ap\r:\
+ :kb=^H:\
+ :kd=^Ay\r:kh=^A?\r:kl=^Aw\r:kr=^Az\r:ku=^Ax\r:\
+ :ky:\
+ :ld=\E)F:\
+ :le=^O:\
+ :li#25:\
+ :ls=^N:\
+ :nl=5^J:\
+ :ns=^Au\r:\
+ :ps=^As\r:\
+ :qa=*:qb=(:qc= :qd=":qe=$:qf=&:qg=!:qh=):qi=%:qj=#:qk=-:\
+ :re=\EI:\
+ :rg=0:\
+ :rv=\EH:\
+ :se=^\I`:\
+ :sg=0:\
+ :so=^\H`:\
+ :ta=^Z:\
+ :ue=^\IP:\
+ :ug=0:\
+ :up=3^K:\
+ :us=^\HP:\
+ :za=^\Hv:zb=^\Hp:zc=^\Hb:zd=^\Hd:ze=^\HR:zf=^\HT:\
+ :zg=^\HF:zh=^\Hr:zi=^\HV:zj=^\Hf:zk=^\Ht:\
+ :GS=\Eo:GE=^O:GG=0:\
+ :GV=-:GH=&:GU=%:GD=#:G1=(:G2= :G3=":G4=*:\
+ :CF=\E]:CO=\E\\:\
+ :WL=^Aa\r:WR=^Ab\r:CL=^Ac\r:CR=^Ad\r:\
+ :DL=^Ae\r:RF=^Af\r:RC=^Ag\r:CW=^Ah\r:\
+ :NU=^Aj\r:EN=^Ak\r:HM=^Al\r:\
+ :PL=^Am\r:PU=^An\r:PD=^Ao\r:PR=^Ap\r:\
+ :HP=^A@\r:RT=^Aq\r:TB=\r:CN=\177:\
+ :MP=\E+F:
+# Mail changes to csvax:mark, csvax.mark@berkeley, or research!ucbvax!mark
+# or lose them!
+As|ANSI|ansi|2400|ansi-trial|ansi 3.64 standard:\
+ :am:\
+ :sc=\E7:\
+ :rc=\E8:\
+ :bc=^H:\
+ :bl=^G:\
+ :bs=^H:\
+ :cd=\E[J:\
+ :ce=\E[K:\
+ :cl=\E[;H\E[2J:\
+ :cm=\E[%i%d;%dH:\
+ :co#80:\
+ :cr=^M:\
+ :cs=\E[%i%d;%dr:\
+ :dc=\E[P:dk=\EOS:\
+ :do=\E[B:\
+ :ei=\E[4l:\
+ :ho=\E[H:\
+ :ik=\EOR:im=\E[4h:\
+ :kb=^H:\
+ :kd=\E[B:\
+ :kh=\E[H:\
+ :kl=\E[D:\
+ :kn#4:\
+ :kr=\E[C:\
+ :ku=\E[A:\
+ :k1=\EOP:\
+ :k2=\EOQ:\
+ :k3=\EOR:\
+ :k4=\EOS:\
+ :le=^H:\
+ :li#24:\
+ :mi:\
+ :nd=\E[C:\
+ :nl=^J:ns=\EOP:\
+ :ps=\EOQ:pt:\
+ :se=\E[m:\
+ :sf=\ED:\
+ :so=\E[7m:\
+ :sr=\EM:\
+ :ta=^I:\
+ :ue=\E[m:\
+ :up=\E[A:
+ :us=\E[4m:
+
+# # --------------------------------
+#
+# v: TELEVIDEO
+#
+# There are some tvi's that require incredible amounts of padding and
+# some that don't.  I'm assuming 912 and 920 are the old slow ones,
+# and 912b, 912c, 920b, 920c are the new ones that don't need padding.
+v1|tvi912|912|920|tvi920|old televideo:\
+ :ct=\E3:st=\E1:cr=^M:do=^J:nl=^J:bl=^G:\
+ :al=33*\EE:le=^H:ce=\ET:cm=\E=%+ %+ :cl=20^Z:co#80:dc=\EW:dl=33*\ER:ei=:\
+ :kb=^h:ku=^K:kd=^J:kl=^H:kr=^L:k0=^A@\r:k1=^AA\r:k2=^AB\r:k3=^AC\r:\
+ :bs=^H:am:k4=^AD\r:k5=^AE\r:k6=^AF\r:k7=^AG\r:k8=^AH\r:k9=^AI\r:\
+ :ho=20^^:im=:ic=\EQ:li#24:nd=^L:ta=^I:pt:se=\Ek:so=\Ej:up=^K:us=\El:ue=\Em:\
+ :ma=^K^P^L :sg#1:ug#1:cd=\Ey:
+# the 912 has a <funct> key that's like shift: <funct>8 xmits "^A8\r".
+# The 920 has this plus real function keys that xmit different things.
+# Termcap makes you use the funct key on the 912 but the real keys on the 920.
+v2|912b|912c|tvi912b|tvi912c|tvi|new televideo 912:\
+ :al=5*\EE:dl=5*\ER:tc=tvi912:
+v3|920b|920c|tvi920b|tvi920c|new televideo 920:\
+ :k0=^A@\r:k1=^AA\r:k2=^AB\r:k3=^AC\r:k4=^AD\r:k5=^AE\r:\
+ :k6=^AF\r:k7=^AG\r:k8=^AH\r:k9=^AI\r:tc=tvi912b:
+# set to page 1 when entering ex (\E-17 )
+# reset to page 0 when exiting ex (\E-07 )
+#
+vh|herc:\
+ :li#25:co#80:cl=400^Z:ho=400^^:sg=0:ug=0:\
+ :k0=^A@\r:k1=^AA\r:k2=^AB\r:k3=^AC\r:k4=^AD\r:k5=^AE\r:\
+ :k6=^AF\r:k7=^AG\r:k8=^AH\r:k9=^AI\r:\
+ :ct=\E3:st=\E1:cr=^M:do=^J:nl=^J:bl=^G:\
+ :al=33*\EE:le=^H:ce=\ET:cm=\E=%+ %+ :dc=\EW:dl=33*\ER:ei=:\
+ :kb=^h:ku=^K:kd=^J:kl=^H:kr=^L:k0=^A@\r:k1=^AA\r:k2=^AB\r:k3=^AC\r:\
+ :bs=^H:am:k4=^AD\r:k5=^AE\r:k6=^AF\r:k7=^AG\r:k8=^AH\r:k9=^AI\r:\
+ :im=:ic=\EQ:nd=^L:ta=^I:pt:se=\Ek:so=\Ej:up=^K:us=\El:ue=\Em:\
+ :ma=^K^P^L :cd=\Ey:
+#
+v4|tvi912-2p|tvi920-2p|912-2p|920-2p|tvi-2p|televideo w/2 pages:\
+ :ti=\E-17 :te=\E-07 :tc=tvi912:\
+v5|tvi950-ap|tvi 950 w/alt pages:\
+ :is=\E\\1:ti=\E-06 :te=\E-16 :tc=tvi950:
+v6|tvi950-b|bare tvi950 no is:\
+ :is@:tc=tvi950:
+v7|tvi950-ns|tvi950 w/no standout:\
+ :so@:se@:us@:ue@:tc=tvi950:
+# v8|tvi925|925|televideo model 925:\
+#  :hs:xn:am:bs:co#80:li#24:cm=\E=%+ %+ :cl=^Z:cd=\EY:ce=\ET:is=\El\E":\
+#  :al=\EE:dl=\ER:im=:ei=:ic=\EQ:dc=\EW:if=/usr/lib/tabset/stdcrt:\
+#  :ho=^^:nd=^L:bt=\EI:pt:so=\EG4:se=\EG0:sg#1:us=\EG8:ue=\EG0:ug#1:\
+#  :up=^K:do=^V:kb=^H:ku=^K:kd=^V:kl=^H:kr=^L:kh=^^:ma=^V^J^L :\
+#  :k1=^A@\r:k2=^AA\r:k3=^AB\r:k4=^AC\r:k5=^AD\r:k6=^AE\r:k7=^AF\r:\
+#  :k8=^AG\r:k9=^AH\r:k0=^AI\r:ko=ic,dc,al,dl,cl,ce,cd,bt:\
+#  :ts=\Ef:fs=\Eg:
+#
+#
+# entry by Tim Curry 5/21/82 Univ. of Central Fla. duke!ucf-cs!tim
+v9|925|tvi925|925a|tvi925a|TeleVideo Model 925:\
+ :al=\EE:am:bs:bt=\EI:bw:cd=\EY:ce=\ET:cl=^Z:cm=\E=%+ %+ :co#80:dc=\EW:\
+ :dl=\ER:do=^V:ei=:ic=\EQ:if=/usr/lib/tabset/std:im=:kb=^H:kd=^V:\
+ :kh=^^:kl=^H:kn#12:kr=^L:ku=^K:li#24:nd=^L:pt:se=\EG0:sg=#1:so=\EG4:\
+ :ue=\EG0:ug#1:ul:up=^K:us=\EG8:is=\El\
+ :vb=\Eb\200\200\200\200\200\200\200\200\200\200\200\200\200\200\Ed:\
+ :ve=\E.4:vs=\E.2:
+# The following tvi descriptions from B:pjphar and virus!mike
+# is for all 950's.  It sets the following attributes:
+# full duplex (\EDF)  write protect off (\E()
+# conversation mode (\EC) graphics mode off (\E%)
+# white on black (\Ed)  auto page flip off (\Ew)
+# turn off status line (\Eg) clear status line (\Ef\r)
+# normal video (\E0)  monitor mode off (\EX or \Eu)
+# edit mode (\Er)  load blank char to space (\Ee\040)
+# line edit mode (\EO)  enable buffer control (^O)
+# protect mode off (\E\047) duplex edit keys (\El)
+# program unshifted send key to send line all (\E016)
+# program shifted send key to send line unprotected (\E004)
+# set the following to nulls:
+# field delimiter (\Ex0\200\200)
+# line delimiter (\Ex1\200\200)
+# start-protected field delimiter (\Ex2\200\200)
+# end-protected field delimiter (\Ex3\200\200)
+# set end of text delimiter to carriage return/null (\Ex4\r\200)
+#
+va|tvi950|950|televideo950:\
+ :ct=\E3:\
+ :st=\E1:\
+ :cr=^M:\
+ :do=^J:\
+ :nl=^J:\
+ :bl=^G:\
+ :is=\EDF\EC\Ed\EG0\Eg\Er\EO\E\047\E(\E%\Ew\EX\Ee ^O\
+     \El\E016\E004\Ex0\200\200\Ex1\200\200\Ex2\200\200\
+     \Ex3\200\200\Ex4\r\200\Ef\r:\
+ :al=\EE:\
+ :am:\
+ :le=^H:\
+ :bs:\
+ :bt=\EI:\
+ :cd=\Ey:\
+ :ce=\Et:\
+ :cl=\E*:\
+ :cm=\E=%+ %+ :\
+ :co#80:\
+ :dc=\EW:\
+ :dl=\ER:\
+ :do=^V:\
+ :ei=\Er:\
+ :ho=^^:\
+ :im=\Eq:\
+ :k0=^A0\r:\
+ :k1=^A@\r:\
+ :k2=^AA\r:\
+ :k3=^AB\r:\
+ :k4=^AC\r:\
+ :k5=^AD\r:\
+ :k6=^AE\r:\
+ :k7=^AF\r:\
+ :k8=^AG\r:\
+ :k9=^AH\r:\
+ :kb=^H:\
+ :kd=^V:\
+ :kh=^^:\
+ :kl=^H:\
+ :ko=ic\054dc\054al\054dl\054cl\054bt\054ce\054cd:\
+ :kr=^L:\
+ :ku=^K:\
+ :li#24:\
+ :ma=^Vj^Kk^Hh^Ll^^H:\
+ :mi:\
+ :ms:\
+ :nd=^L:\
+ :ta=^I:\
+ :pt:\
+ :se=\EG0:\
+ :sg#1:\
+ :so=\EG4:\
+ :sr=\Ej:\
+ :ue=\EG0:\
+ :ug#1:\
+ :up=^K:\
+ :us=\EG8:\
+ :vb=\Eb\200\200\200\200\200\200\200\200\200\200\200\200\200\200\200\Ed:\
+ :hs:\
+ :ts=\Eg\Ef:\
+ :fs=\r:\
+ :ds=\Eg\Ef\r:
+#
+# is for 950 with two pages adds the following:
+# set 48 line page (\E\\2)
+# place cursor at page 0, line 24, column 1 (\E-07 )
+# set local (no send) edit keys (\Ek)
+#
+# two page 950 adds the following:
+# when entering ex, set 24 line page (\E\\1)
+# when exiting ex, reset 48 line page (\E\\2)
+#    place cursor at 0,24,1 (\E-07 )
+# set duplex (send) edit keys (\El) when entering vi
+# set local (no send) edit keys (\Ek) when exiting vi
+#
+vb|tvi950-2p|950-2p|televideo950 w/2 pages:\
+ :is=\EDF\EC\Ed\EG0\Eg\Er\EO\E\047\E(\E%\Ew\EX\Ee ^O\
+ \Ek\E016\E004\Ex0\200\200\Ex1\200\200\Ex2\200\200\
+ \Ex3\200\200\Ex4\r\200\E\\2\E-07 \
+ :te=\E\\2\E-07 :ti=\E\\1\E-07 :ks=\El:ke=\Ek:tc=tvi950:
+#
+# is for 950 with four pages adds the following:
+# set 96 line page (\E\\3)
+# place cursor at page 0, line 24, column 1 (\E-07 )
+#
+# four page 950 adds the following:
+# when entering ex, set 24 line page (\E\\1)
+# when exiting ex, reset 96 line page (\E\\3)
+#    place cursor at 0,24,1 (\E-07 )
+#
+vc|tvi950-4p|950-4p|televideo950 w/4 pages:\
+ :is=\EDF\EC\Ed\EG0\Eg\Er\EO\E\047\E(\E%\Ew\EX\Ee ^O\
+ \Ek\E016\E004\Ex0\200\200\Ex1\200\200\Ex2\200\200\
+ \Ex3\200\200\Ex4\r\200\E\\3\E-07 \
+ :te=\E\\3\E-07 :ti=\E\\1\E-07 :ks=\El:ke=\Ek:tc=tvi950:
+#
+# is for reverse video 950 changes the following:
+# set reverse video (\Ed)
+#
+# set vb accordingly (\Ed ...nulls... \Eb)
+#
+vd|tvi950-rv|950-rv|televideo950 rev video:\
+ :is=\EDF\EC\Eb\EG0\Eg\Er\EO\E\047\E(\E%\Ew\EX\Ee ^O\
+ \El\E016\E004\Ex0\200\200\Ex1\200\200\Ex2\200\200\
+ \Ex3\200\200\Ex4\r\200:\
+ :vb=\Ed\200\200\200\200\200\200\200\200\200\200\200\200\200\200\200\Eb:\
+ :tc=tvi950:
+#
+# uses the appropriate entries from 950-2p and 950-rv
+#
+ve|tvi950-rv-2p|950-rv-2p|televideo950 rev video w/2 pages:\
+ :is=\EDF\EC\Eb\EG0\Eg\Er\EO\E\047\E(\E%\Ew\EX\Ee ^O\
+ \Ek\E016\E004\Ex0\200\200\Ex1\200\200\Ex2\200\200\
+ \Ex3\200\200\Ex4\r\200\E\\2\E-07 :\
+ :vb=\Ed\200\200\200\200\200\200\200\200\200\200\200\200\200\200\200\Eb:\
+ :te=\E\\2\E-07 :ti=\E\\1\E-07 :ks=\El:ke=\Ek:tc=tvi950:
+#
+# uses the appropriate entries from 950-4p and 950-rv
+#
+vf|tvi950-rv-4p|950-rv-4p|televideo950 rev video w/4 pages:\
+ :is=\EDF\EC\Eb\EG0\Er\EO\E\047\E(\E%\Ew\EX\Ee ^O\
+ \Ek\E016\E004\Ex0\200\200\Ex1\200\200\Ex2\200\200\
+ \Ex3\200\200\Ex4\r\200\E\\3\E-07 :\
+ :vb=\Ed\200\200\200\200\200\200\200\200\200\200\200\200\200\200\200\Eb:\
+ :te=\E\\3\E-07 :ti=\E\\1\E-07 :ks=\El:ke=\Ek:tc=tvi950:
+#
+# TELEVIDEO BT970 TERMINALS
+# 
+# Written by Don Bailey.  Includes ingres codes.
+#
+bt|tv970|970|bt970|BT970:\
+ :ae=^O:\
+        :al=\E[L:\
+ :as=^N:\
+ :be=\E[m:\
+ :bl=\E[5m:\
+ :bo=\E[1m:\
+ :bs:bs=^H:\
+ :bt=\E[Z:\
+ :cd=50\E[J:\
+ :ce=3\E[K:\
+ :ch=\E[%i%dG:\
+ :cl=50\E[2J:\
+ :cm=5\E[%i%d;%dH:\
+ :co#80:\
+ :cr=^M:\
+ :cs=\E[%i%d;%dr:\
+ :cv=\E[%i%dd:\
+ :dl=\E[M:\
+ :do=^J:\
+ :ea=\E[m:\
+ :eb=\E[2m:\
+ :ei=:\
+ :ho=\E[H:\
+ :ic=\E[:\
+ :im=:\
+ :is=\E[?7h\E[3;1z:\
+ :k0=\E?a:k1=\E?b:k2=\E?c:k3=\E?d:\
+ :k4=\E?e:k5=\E?f:k6=\E?g:k7=\E?h:\
+ :k8=\E?i:k9=\E?j:kA=\E?k:kB=\E?l:\
+ :kC=\E?m:kD=\E?n:kE=\E?o:kF=\E?p:\
+ :kb=^H:\
+ :kd=\E[B:\
+ :kh=\E[H:\
+ :kl=\E[D:\
+ :kn#16:\
+ :kr=\E[C:\
+ :ks=\E>:\
+ :ku=\E[A:\
+ :ky:\
+ :ld=\E):\
+ :le=^H:\
+ :li#24:\
+ :ls=^N:\
+ :mi:\
+ :nd=2\E[C:\
+ :nl=^J:\
+ :pt:\
+ :qa=j:qb=k:qc=l:qd=m:qe=n:qf=q:qg=t:qh=v:qi=v:qj=w:qk=x:\
+ :rc=\E8:\
+ :re=2\E[m:\
+ :rv=2\E[7m:\
+ :sc=\E7:\
+ :se=2\E[m:sf=\ED:\
+ :so=2\E[1m:sr=5\EM:\
+ :ta=^I:\
+ :ue=2\E[m:\
+ :us=2\E[4m:\
+ :up=2\E[A:\
+ :xn:\
+ :za=\E[7;5;1;4m:zb=\E[1;4m:zc=\E[1;5m:zd=\E[1;7m:\
+ :ze=\E[4;5m:zf=\E[4;7m:zg=\E[5;7m:zh=\E[1;5;4m:\
+ :zi=\E[5;4;7m:zj=\E[1;5;7m:zk=\E[1;4;7m:
+#
+# DEC vt220
+#
+vg|vt220|220:\
+ :tc=As:
+# This version of termcap for a televideo personal terminal (BT970pt)
+# has been tested on the screen editor and works well.
+# If errors are found please notify Tom Ferrin 24K67 SBC Atlanta, GA 
+# 30375. (404-529-8679) Or UNIX bhhd00!tom.
+# Modified by Don Bailey 14A51 SBC (404-529-7958) or UNIX bgmi00!drb.
+#
+v8|tvipt|pt|bt970pt|970pt|televideo model personal terminal:\
+ :is=\E.2\Eu\EK\EDF\El\Ev:\
+ :li#24:co#80:\
+ :am:bs:bw:\
+ :cl=\E+:cd=\EY:\
+ :dl=\ER:al=\EE:\
+ :cm=\E=%+ %+ :\
+ :ho=^^:do=^J:up=^K:bs=^H:\
+ :kb=^H:kd=^J:kh=^^:kl=^H:kr=^L:ku=^K:\
+ :so=\EG1@A\EH:se=\EG0@@\EF:sg#0:\
+ :us=\EG1B@\EH:ue=\EG0@@\EF:ug#0:\
+ :ce=\ET:\
+ :pt:bt=\EI:nd=^L:cr=^M:\
+ :rv=\EG1@A\EH:re=\EG0@@\EF:rg=0:\
+ :GS=\EG1H@\EH:GE=\EG0@@\EF\EK:GG=0:\
+ :GV=\EKJ:GH=\EJ<:GU=\EJ>:GD=\EK\\:G1=\EKL:G2=\EKX:G3=\EJ\072:G4=\EJ.:\
+ :CF=\E.0:CO=\E.2:
+#
