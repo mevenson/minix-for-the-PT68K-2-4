@@ -36,7 +36,7 @@ Once booted, the user name to login with is 'root' and the password is 'merlin'.
 
 Future plans are to put the WD1002-WX1 driver back in and add support for the 37C65 floppy controller. This interface is built into the PT68K-4 and is an addin ISA card on the PT68K-2. 
 
-To make turn around time while testing code go quicker, I am using a very small SD Card. It is a 256MB card (yes - MB not GB). Using a small card allows me to back up the image very quickly before commiting changes with putminix. It also allows me make a version of the image for the PT68K-2. I use the PT68K-4 for development, but test on both. The PT68L-4 is just so much faster. Also - using a class 10 SD card .vs. a class 4 card makes a big difference in performance.
+To make turn around time while testing code go quicker, I am using a very small SD Card. It is a 256MB card (yes - MB not GB). Using a small card allows me to back up the image very quickly before commiting changes with putminix. It also allows me make a version of the image for the PT68K-2. I use the PT68K-4 for development, but test on both. The PT68K-4 is just so much faster. Also - using a class 10 SD card .vs. a class 4 card makes a big difference in performance.
 
 The file FloppyMaintenance can be used to view the SD Card image. It is a Windows program, but it does run under Wine on linux. To get the latest version of FLoppyMaintenance visit http://www.swtpcemu.com/swtpc/Downloads.htm.
 
