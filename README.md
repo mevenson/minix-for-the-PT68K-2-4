@@ -38,7 +38,7 @@ Future plans are to put the WD1002-WX1 driver back in and add support for the 37
 
 To make turn around time while testing code go quicker, I am using a very small SD Card. It is a 256MB card (yes - MB not GB). Using a small card allows me to back up the image very quickly before commiting changes with putminix. It also allows me make a version of the image for the PT68K-2. I use the PT68K-4 for development, but test on both. The PT68L-4 is just so much faster. Also - using a class 10 SD card .vs. a class 4 card makes a big difference in performance.
 
-The file FloppyMaintenance can be used to view the SD Card image. It is a Windows program, but it does run under Wine on linux. To get the latest version of FLoppyMaintenance visit http://www.swtpcemu.com/swtpc/doenloads.htm.
+The file FloppyMaintenance can be used to view the SD Card image. It is a Windows program, but it does run under Wine on linux. To get the latest version of FLoppyMaintenance visit http://www.swtpcemu.com/swtpc/Downloads.htm.
 
 I have added to umacs the reporting of the current line and column to the status line whenever the cursor position changes. The next step is to change the attribute of the marked text to bold. This will allow the user to be able to see what text is being marked.
 
