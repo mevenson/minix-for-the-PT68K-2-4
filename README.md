@@ -1,5 +1,102 @@
 # minix-for-the-PT68K-2-4
-This is the minix version 1.4b distribution I have been working on for the Peripheral Technology PT68K-2 and PT68K-4 compulters.
+
+🧠 PT68K MINIX 1.4 SD-Card/XT-IDE Boot and Disk Driver<br>
+Author: Michael Evenson<br>
+Target System: Peripheral Technology PT68K (Motorola 68000-based)<br>
+Operating System: MINIX 1.4/68K<br>
+Date: 2025<br>
+License: Historical/Preservation Use<br>
+
+1. Overview<br>
+This project modernizes the Peripheral Technology PT68K single-board computer to run MINIX 1.4/68K entirely from a solid-state SD card, replacing traditional hard disks while maintaining full compatibility with the original HUMBUG monitor ROM and SK*DOS boot conventions.
+A custom block device driver and bootstrap loader were written to achieve this, allowing the unmodified HUMBUG firmware to boot MINIX as though it were SK*DOS — seamlessly integrating modern storage into a vintage 68000 computing environment.
+
+2. System Components<br>
+ComponentDescriptionCPUMotorola MC68000Bus8-bit ISA compatibleFirmwareHUMBUG monitor ROM (unmodified)RTCBattery-backed Mostek MK48T02 (or equivalent)Mass StorageSD card via IDE-to-SD adapterInterfacePeripheral Technology XT-IDE 8-bit ISA cardOperating SystemMINIX 1.4/68K
+
+3. Design Goals<br>
+    Boot MINIX directly from an SD card with no modifications to HUMBUG.<br>
+    Retain compatibility with SK*DOS boot protocols.<br>
+    Integrate with the existing MINIX block device layer.<br>
+    Preserve date/time across reboots using the PT68K’s battery-backed RTC.<br>
+    Achieve full stability and transparency — the system behaves exactly as a traditional PT68K with an MFM or RLL disk.<br>
+
+4. Boot Process<br>
+
+    4.1 Standard HUMBUG behavior<br>
+    HUMBUG expects to find an SK*DOS-style boot sector on the first disk track.<br>
+    It reads the sector, loads additional blocks, and transfers control to the SK*DOS loader.<br>
+    
+    4.2 Custom loader design<br>
+    The custom boot sector written for this project mimics SK*DOS, allowing HUMBUG to perform its normal SKDOS load sequence.<br>
+    However, instead of launching SKDOS, the sector chain actually loads the MINIX secondary loader into memory.<br>
+    From HUMBUG’s perspective, it has just booted SK*DOS.<br>
+    In reality, it’s now executing the MINIX boot sequence.<br>
+    
+    4.3 Integration into HUMBUG ROM<br>
+    Once verified, the loader’s logic was provided to Peripheral Technology, who incorporated the code directly into a later build of HUMBUG — giving the ROM native MINIX boot capability.<br>
+
+5. Disk Driver<br>
+    5.1 Architecture<br>
+        The disk driver was implemented within MINIX’s standard block device layer (driver/hd.c equivalent).<br>
+        It communicates with the XT-IDE registers in PIO mode (Programmed I/O), emulating standard MINIX block device semantics.<br>
+
+    5.2 Interface<br>
+        The driver exposes /dev/hd0, /dev/hd1, etc.<br>
+        It supports read/write block operations using 512-byte sectors.<br>
+        All access is handled synchronously via XT-IDE data and command ports mapped to the PT68K’s ISA address space.<br>
+
+    5.3 SD Card Adaptation<br>
+        The underlying storage is an SD card presented as an IDE device using a common IDE-to-SD adapter.<br>
+        This allows the card to appear as a standard ATA drive, compatible with XT-IDE firmware and the driver’s existing ATA command set.<br>
+
+6. RTC Integration<br>
+The PT68K hardware includes a battery-backed Mostek RTC/NVRAM, which stores both clock and small configuration data.<br>
+
+The MINIX kernel’s clock.c driver was modified to:<br>
+    Read the RTC at boot (rtodc())<br>
+    Write the RTC when date updates the system time (wtodc())<br>
+
+This allows the system time to persist across reboots — unlike most early MINIX 1.x systems.<br>
+
+7. Usage Summary<br>
+TaskCommand/ProcedureCheck current date/timedateSet date/timedate MMDDYYhhmmssBoot MINIX from HUMBUGBO (standard HUMBUG boot command)SD Card replacementPower off → swap SD → reboot (fully supported)<br>
+The MINIX loader and kernel both reside on the SD card’s first partition, which follows standard MINIX 1.x filesystem layout.<br>
+
+8. Technical Highlights<br>
+    Complete hardware compatibility with legacy PT68K systems<br>
+    Full SK*DOS boot emulation<br>
+    Clean integration with MINIX’s block I/O subsystem<br>
+    No ROM modifications required for operation (original version)<br>
+    Later versions incorporated boot code directly in HUMBUG<br>
+    True persistent clock support under MINIX 1.4<br>
+    Dramatically improved reliability and performance over MFM drives<br>
+
+9. Historical Note<br>
+This work preserves the spirit of the PT68K — a Motorola 68K development system that bridged the gap between hobbyist and professional computing — while modernizing it for practical use in the 21st century.<br>
+By combining period-accurate architecture with modern storage, the PT68K MINIX 1.4 SD/IDE boot environment ensures that both the hardware and software legacy of the system remain operational and accessible to future generations.<br>
+
+10. Files (recommended structure for distribution)<br>
+PT68K_MINIX_SD/<br>
+├── README.md<br>
+├── boot/<br>
+│   ├── skdos_compatible_boot.asm<br>
+│   ├── minix_loader.asm<br>
+│   └── humbug_integration_notes.txt<br>
+├── driver/<br>
+│   ├── xtide_hd.c<br>
+│   └── xtide_hd.h<br>
+├── images/<br>
+│   ├── minix_sd_boot.img<br>
+│   └── humbug_rom_with_minix_boot.bin<br>
+└── docs/<br>
+    ├── hardware_notes.md<br>
+    ├── build_instructions.md<br>
+    └── changelog.txt<br>
+
+---------End of Chat GPT generated Read.me file ------------------------------------
+
+This is the minix version 1.4b distribution I have been working on for the Peripheral Technology PT68K-2 and PT68K-4 compulters.<br>
 
     hd1.zip has the files that will end up in the root<br>
     hd2.aip has the files that will be mounted as usr<br>
